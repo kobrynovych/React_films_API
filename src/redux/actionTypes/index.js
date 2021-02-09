@@ -1,0 +1,5 @@
+export const CHARACTER_FETCH = 'CHARACTER_FETCH'
+export const SET_IS_LOADING = 'SET_IS_LOADING'
+export const SET_ERROR_MESS = 'SET_ERROR_MESS'
+export const SET_CHARACTER = 'SET_CHARACTER'
+
