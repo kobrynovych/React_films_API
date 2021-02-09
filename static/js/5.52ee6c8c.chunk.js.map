@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/EpisodesPage/index.js"],"names":["Episodes"],"mappings":"wGAAA,uBAUeA,UARE,WACf,OACE","file":"static/js/5.52ee6c8c.chunk.js","sourcesContent":["import React from 'react';\r\n\r\nconst Episodes = () => {\r\n  return (\r\n    <div>\r\nEpisodes\r\n    </div>\r\n  ); \r\n}\r\n\r\nexport default Episodes;"],"sourceRoot":""}
