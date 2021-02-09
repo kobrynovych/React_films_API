@@ -6,8 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import Modal from '@material-ui/core/Modal';
+import Card from './Card';
+import Modal from './Modal';
 
 const useStyles = makeStyles((theme) => ({
   inline: {
@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListItemApp(props) {
   const classes = useStyles();
-  const {imgSrc, imgAlt, title, textBold, text, subTitle, date, text1, text2, text3, text4} = props;
-debugger
+  const {imgSrc, imgAlt, title, textBold, text, subTitle, date, text1, text2, text3, text4, ell} = props;
+// debugger
+// console.log(ell.id)
   // modal
   // const [openModal, setOpenModal] = React.useState(false);
   // const handleModalOpen = () => {
@@ -62,7 +63,6 @@ debugger
       <Divider variant="inset" component="li" />
       {/* {children} */}
       <Modal open={open} handleClose={handleClose}>
-        {/* asd */}
         <Card imgSrc={imgSrc} 
           imgAlt={imgAlt}
           title={title} 
@@ -72,6 +72,7 @@ debugger
           text2={text2}
           text3={text3}
           text4={text4}
+          handleClose={handleClose}
         />
       </Modal>
     </>

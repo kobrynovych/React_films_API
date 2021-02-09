@@ -94,6 +94,7 @@ const Characters = () => {
                 text2={el.gender}
                 text3={el.origin.name}
                 text4={el.location.name}
+                ell={el}
               />   
                 {/* <Modal onClose={handleModalClose}> */}
                 {/* <Modal>
