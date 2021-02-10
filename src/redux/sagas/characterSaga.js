@@ -7,11 +7,6 @@ export function* characterSaga({page, species, status, gender}) {
     yield put({ type: SET_IS_LOADING })
     try {
         const response = yield call(characterFetch, page, species, status, gender)
-        debugger
-        // info.pages
-        // info.count
-        // results.                // [] 20 
-        
         if (response.status === 200) {
             yield put({ type: SET_CHARACTER, payload: response.data })
         } else {

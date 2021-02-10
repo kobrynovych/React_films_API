@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import Card from './Card';
+import Card from '../UI/Card';
 import Modal from './Modal';
 
 const useStyles = makeStyles((theme) => ({
@@ -17,23 +17,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ListItemApp(props) {
   const classes = useStyles();
-  const {imgSrc, imgAlt, title, textBold, text, subTitle, date, text1, text2, text3, text4, ell} = props;
-// debugger
-// console.log(ell.id)
-  // modal
-  // const [openModal, setOpenModal] = React.useState(false);
-  // const handleModalOpen = () => {
-  //   setOpenModal(true);
-  // };
-  // const handleModalClose = () => {
-  //   setOpenModal(false);
-  // };
+  const {imgSrc, imgAlt, title, textBold, text, subTitle, date, text1, text2, text3, text4} = props;
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
@@ -61,7 +50,6 @@ export default function ListItemApp(props) {
         />
       </ListItem>
       <Divider variant="inset" component="li" />
-      {/* {children} */}
       <Modal open={open} handleClose={handleClose}>
         <Card imgSrc={imgSrc} 
           imgAlt={imgAlt}

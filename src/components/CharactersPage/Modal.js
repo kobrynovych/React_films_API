@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const { in: open, children, onEnter, onExited, onClose, openModal,...other } = props;
-  debugger
 
   const style = useSpring({
     from: { opacity: 0 },
@@ -52,24 +51,10 @@ Fade.propTypes = {
   onExited: PropTypes.func,
 };
 
-export default function SpringModal({children, open, handleClose}) {
-    debugger
+export default function ModalApp({children, open, handleClose}) {
   const classes = useStyles();
-//   const [open, setOpen] = React.useState(false);
-
-//   const handleOpen = () => {
-//     setOpen(true);
-//   };
-
-//   const handleClose = () => {
-//     setOpen(false);
-//   };
-
   return (
     <div>
-      {/* <button type="button" onClick={handleOpen}>
-        react-spring
-      </button> */}
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -81,13 +66,9 @@ export default function SpringModal({children, open, handleClose}) {
         BackdropProps={{
           timeout: 500,
         }}
-        // open={openModal}
-        // onClose={onClose}
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            {/* <h2 id="spring-modal-title">Spring modal</h2> */}
-            {/* <p id="spring-modal-description">react-spring animates me.</p> */}
             {children}
           </div>
         </Fade>

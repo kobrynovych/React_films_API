@@ -54,3 +54,13 @@ const instance = axios.create({
 export const characterFetch = (page, species, status, gender) => {
   return instance.get(`character?page=${page}&species=${species}&status=${status}&gender=${gender}`)
 }
+
+// https://rickandmortyapi.com/api/episode
+export const episodeFetch = (page, name, episode) => {
+  return instance.get(`episode?page=${page}&name=${name}&episode=${episode}`)
+}
+
+// https://rickandmortyapi.com/api/location
+// export const LocationFetch = (page, name, type, dimension) => {
+//   return instance.get(`location?page=${page}&name=${name}&type=${type}&dimension=${dimension}`)
+// }

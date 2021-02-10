@@ -9,8 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120,
-  },
+    minWidth: 150,
+  }, 
 }));
 
 export default function SelectApp({arr, title, subTitle, value, setValue}) {

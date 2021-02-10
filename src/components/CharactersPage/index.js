@@ -5,12 +5,9 @@ import Progress from '../UI/Progress';
 import AlertApp from '../UI/Alert';
 import Pagination from '../UI/Pagination';
 import List from '../UI/List';
-import ListItem from '../UI/ListItem';
+import ListItem from './ListItem';
 import Select from '../UI/Select';
-import Modal from '../UI/Modal';
-import Card from '../UI/Card';
-
-
+import Grid from '@material-ui/core/Grid';
   
 const Characters = () => {
   const [page, setPage] = useState(1);
@@ -20,8 +17,8 @@ const Characters = () => {
   
   const dispatch = useDispatch();
 
-  const pending = useSelector(state => state.character.pending);
-  const error = useSelector(state => state.character.error);
+  const pending = useSelector(state => state.all.pending);
+  const error = useSelector(state => state.all.error);
   const pages = useSelector(state => state.character.pages);
   const count = useSelector(state => state.character.count);
   const results = useSelector(state => state.character.results); // []
@@ -36,91 +33,56 @@ const Characters = () => {
   const statusArr = ['Alive', 'Dead', 'unknown'];
   const genderArr = ['Female', 'Male', 'Genderless', 'unknown'];
 
-  // // modal
-  // const [openModal, setOpenModal] = React.useState(false);
-  // const handleModalOpen = () => {
-  //   setOpenModal(true);
-  // };
-  // const handleModalClose = () => {
-  //   setOpenModal(false);
-  // };
-
-
   return (
-    <div>
+    <main>
       {pending ? (<Progress />) : error ? (<AlertApp />) : (<>
-
-        <Select arr={speciesArr} 
-          title='Species' 
-          subTitle='Filter by species' 
-          setValue={setSpecies}
-          value={species} 
-        />
-        
-        <Select arr={statusArr} 
-          title='Status' 
-          subTitle='Filter by status' 
-          setValue={setStatus}
-          value={status} 
-        />      
-
-        <Select arr={genderArr} 
-          title='Sender' 
-          subTitle='Filter by gender' 
-          setValue={setGender}
-          value={gender} 
-        />        
-
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={4}>
+            <Select arr={speciesArr} 
+              title='Species' 
+              subTitle='Filter by species' 
+              setValue={setSpecies}
+              value={species} 
+            />
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Select arr={statusArr} 
+              title='Status' 
+              subTitle='Filter by status' 
+              setValue={setStatus}
+              value={status} 
+            />    
+          </Grid>
+          <Grid item xs={12} sm={4}>
+            <Select arr={genderArr} 
+              title='Sender' 
+              subTitle='Filter by gender' 
+              setValue={setGender}
+              value={gender} 
+            />  
+          </Grid>
+        </Grid>
 
         <List>
           {results.map(el => (<React.Fragment key={el.id} >
-              {/* <ListItem  imgSrc={el.image}
-                imgAlt={el.name} 
-                title={el.name} 
-                textBold={el.species} 
-                text={el.location.name} 
-                onClick={handleModalOpen}
-              /> */}
-              {/* <Modal onClose={handleModalClose} open={openModal}> */}
               <ListItem  imgSrc={el.image}
                 imgAlt={el.name} 
                 title={el.name} 
                 textBold={el.species} 
                 text={el.location.name} 
-                // onClick={handleModalOpen}
                 subTitle={el.status} 
                 date={el.created}
-                text1={el.species}
-                text2={el.gender}
-                text3={el.origin.name}
-                text4={el.location.name}
-                ell={el}
+                text1={`The species of the character: ${el.species}`}
+                text2={`The gender of the character: ${el.gender}`}
+                text3={`Name and link to the character's origin location: ${el.origin.name}`}
+                text4={`Name and link to the character's last known location endpoint: ${el.location.name}`}
               />   
-                {/* <Modal onClose={handleModalClose}> */}
-                {/* <Modal>
-                  <Card imgSrc={el.image} 
-                    imgAlt={el.name}
-                    title={el.name} 
-                    subTitle={el.status} 
-                    date={el.created}
-                    text1={el.species}
-                    text2={el.gender}
-                    text3={el.origin.name}
-                    text4={el.location.name}
-                  />
-                </Modal> */}
-              {/* </ListItem> */}
-
-
-
             </React.Fragment>))}
         </List>
       
         <Pagination page={page} setPage={setPage} maxPage={pages}/>
-
       </>)}
-    </div>
+    </main>
   ); 
 }
-
 export default Characters;

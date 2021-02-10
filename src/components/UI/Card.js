@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -14,7 +13,6 @@ import { red } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,47 +40,33 @@ const useStyles = makeStyles((theme) => ({
 export default function CardApp({imgSrc, imgAlt, title, subTitle, date, text1, text2, text3, text4, handleClose}) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  // debugger
-
   const d = new Date(date);
   const dateFinish = `${d.getDate()},${d.getMonth() + 1},${d.getFullYear()}`;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
           <Avatar alt={imgAlt} src={imgSrc} />
         }
         action={
-          <IconButton aria-label="settings" onClick={handleClose}>
-            {/* <MoreVertIcon /> */}
-            X
-          </IconButton>
+          <IconButton aria-label="settings" onClick={handleClose}>X</IconButton>
         }
         title={title}
         subheader={`${subTitle} - ${dateFinish}`}
       />
-      {/* <CardMedia
-        className={classes.media}
-        image="/static/images/cards/paella.jpg"
-        title="Paella dish"
-      /> */}
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          The species of the character: {text1}
+          {text1}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          The gender of the character: {text2}
+          {text2}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          Name and link to the character's origin location: {text3}
+          {text3}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -107,7 +91,7 @@ export default function CardApp({imgSrc, imgAlt, title, subTitle, date, text1, t
         <CardContent>
           <Typography paragraph>{title}:</Typography>
           <Typography paragraph>
-            Name and link to the character's last known location endpoint: {text4}
+            {text4}
           </Typography>
         </CardContent>
       </Collapse>
