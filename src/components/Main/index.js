@@ -22,13 +22,10 @@ const Main = () => {
           <Route exact path="/Profile">
             <Profile />
           </Route>
+          <Route exact path="/">
+            <Characters />
+          </Route>
         </Suspense>
-        {/*/:userId? - є не обовязковим*/}
-        {/* <Route path="/profile/:userId?">
-          <Suspense fallback={<div>Завантаження...</div>}>
-            <ProfileContainer />
-          </Suspense>
-        </Route> */}
       </Switch>
     </main>
   );

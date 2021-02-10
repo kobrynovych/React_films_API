@@ -46,6 +46,7 @@ export default function CardApp({imgSrc, imgAlt, title, subTitle, date, text1, t
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  
   return (
     <Card className={classes.root}>
       <CardHeader

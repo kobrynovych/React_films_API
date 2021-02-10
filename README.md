@@ -1,8 +1,8 @@
-# React_weather_app
+# React_films_API
 
-App to show weather and weather for your current city.
+The Rick and Morty API is a RESTful and GraphQL API based on the television show Rick and Morty. You will have access to about hundreds of characters, images, locations and episodes. The Rick and Morty API is filled with canonical information as seen on the TV show.
 
-https://igorkob.github.io/React_Weather_API
+https://igorkob.github.io/React_films_API
 
 ## Table of contents
 * [Instructions](#Instructions)
@@ -14,7 +14,7 @@ https://igorkob.github.io/React_Weather_API
 
 First clone this repository.
 ```bash
-$ git clone https://github.com/IgorKob/React_Weather_API.git
+$ git clone https://github.com/IgorKob/React_films_API.git
 ```
 
 Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/) installed in your system.
@@ -28,14 +28,16 @@ $ npm start # or yarn start
 ```
 
 ## Description
-This is a simple react weather app using public [`OpenWeatherMap API`](https://openweathermap.org/api).
-To get user’s current location (and city), used [`IpApi`](https://ipapi.co/api).
+This is a simple react app using public [`Rick and Morty API`](https://rickandmortyapi.com/).
 
 
 ## Technologies
 Project uses:
-* React
-* React-redux
+* React (useState, useEffect, useMemo, React.lazy, React.memo)
+* React-redux (useDispatch, useSelector)
+* Redux-saga
 * React-router
 * Material-ui
-* Axios
+* Styled-components
+* Axios 
+* LocalStorage 

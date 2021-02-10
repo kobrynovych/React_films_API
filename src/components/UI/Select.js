@@ -7,6 +7,11 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const useStyles = makeStyles((theme) => ({
+  wrap: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 150,
@@ -21,7 +26,7 @@ export default function SelectApp({arr, title, subTitle, value, setValue}) {
   };
 
   return (
-    <div>
+    <div className={classes.wrap}>
       <FormControl className={classes.formControl}>
         <InputLabel id={title}>{title}</InputLabel>
         <Select

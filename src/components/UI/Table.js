@@ -7,10 +7,10 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TableHead from '@material-ui/core/TableHead';
 import TableCell from '@material-ui/core/TableCell';
+import styled from 'styled-components';
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 700,
     whiteSpace: 'nowrap',
     overflow : 'auto',
     '& tr:nth-of-type(odd)': {
@@ -21,13 +21,18 @@ const useStyles = makeStyles({
     },
   },
 });
+const TableWrap = styled.div`
+  maw-width: 100%;
+  overflow-x : auto;
+`;
+
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: 'rgba(0,0,0,.5)',
       color: theme.palette.common.white,
     },
     body: {
-      fontSize: 14,
+      fontSize: 12,
     },
   }))(TableCell);
 
@@ -35,21 +40,23 @@ const StyledTableCell = withStyles((theme) => ({
 export default function TableApp({children, rows, arr}) {
   const classes = useStyles();
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="custom pagination table">
-        <TableHead>
-          <TableRow>
-            {arr.map(el => (<StyledTableCell key={el}>{el}</StyledTableCell>))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-            {rows.map((row) => (
-                <TableRow key={row.name}>
-                    {children(row)}
-                </TableRow>
-            ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <TableWrap>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} aria-label="custom pagination table">
+          <TableHead>
+            <TableRow>
+              {arr.map(el => (<StyledTableCell key={el}>{el}</StyledTableCell>))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+              {rows.map((row) => (
+                  <TableRow key={row.name}>
+                      {children(row)}
+                  </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </TableWrap>
   );
 }

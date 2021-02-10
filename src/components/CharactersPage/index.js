@@ -8,7 +8,8 @@ import List from '../UI/List';
 import ListItem from './ListItem';
 import Select from '../UI/Select';
 import Grid from '@material-ui/core/Grid';
-  
+import TypographyH from '../UI/TypographyH';
+
 const Characters = () => {
   const [page, setPage] = useState(1);
   const [species, setSpecies] = useState('');
@@ -20,9 +21,7 @@ const Characters = () => {
   const pending = useSelector(state => state.all.pending);
   const error = useSelector(state => state.all.error);
   const pages = useSelector(state => state.character.pages);
-  const count = useSelector(state => state.character.count);
-  const results = useSelector(state => state.character.results); // []
-// debugger
+  const results = useSelector(state => state.character.results); 
 
   useEffect(() => {
     dispatch({type: CHARACTER_FETCH, page, species, status, gender})
@@ -36,6 +35,7 @@ const Characters = () => {
   return (
     <main>
       {pending ? (<Progress />) : error ? (<AlertApp />) : (<>
+        <TypographyH hn='h2' text={'Characters'}/>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={4}>
             <Select arr={speciesArr} 

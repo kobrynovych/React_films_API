@@ -8,18 +8,19 @@ import Select from '../UI/Select';
 import Grid from '@material-ui/core/Grid';
 import TableApp from '../UI/Table';
 import TableCell from '@material-ui/core/TableCell';
+import TypographyH from '../UI/TypographyH';
 
 const Episodes = () => {
   const [page, setPage] = useState(1);
   const [name, setName] = useState('');
   const [episode, setEpisode] = useState('');
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  
   const pending = useSelector(state => state.all.pending);
   const error = useSelector(state => state.all.error);
   const pages = useSelector(state => state.episode.pages);
-  const count = useSelector(state => state.episode.count);
-  const results = useSelector(state => state.episode.results); // []
+  const results = useSelector(state => state.episode.results); 
 
   useEffect(() => {
     dispatch({type: EPISODE_FETCH, page, name, episode})
@@ -38,6 +39,7 @@ const Episodes = () => {
   return (
     <main>
       {pending ? (<Progress />) : error ? (<AlertApp />) : (<>
+        <TypographyH hn='h2' text={'Episodes'}/>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={4}>
             <Select arr={nameArr} 

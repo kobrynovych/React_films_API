@@ -16,12 +16,18 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Main from '../Main';
 import PersonIcon from '@material-ui/icons/Person';
 import PeopleIcon from '@material-ui/icons/People';
 import LocationSearchingIcon from '@material-ui/icons/LocationSearching';
 import MovieIcon from '@material-ui/icons/Movie';
 import {useStyles} from './styles';
+import styled from 'styled-components';
+
+const MainWrap = styled.div`
+  width: 90%;
+  padding: 0;
+  maargin: 0;
+`;
 
 const myLinkMenu = [
   <NavLink to="/characters" ><ListItem button><ListItemIcon><PeopleIcon /></ListItemIcon><ListItemText>Characters</ListItemText></ListItem></NavLink>,
@@ -30,7 +36,7 @@ const myLinkMenu = [
   <NavLink to="/profile"><ListItem button><ListItemIcon><PersonIcon /></ListItemIcon><ListItemText>My watch list</ListItemText></ListItem></NavLink>,
 ]; 
 
-const Nav = () => {
+const Nav = ({children}) => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -104,10 +110,10 @@ const Nav = () => {
       </Drawer>
 
 {/* main */}
-      <main className={classes.content}>
+      <MainWrap className={classes.content}>
         <div className={classes.toolbar} />
-          <Main />
-      </main>
+          {children}
+      </MainWrap>
 
     </div>
   );

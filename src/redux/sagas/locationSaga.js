@@ -1,17 +1,19 @@
 import React from "react"
 import { call, put } from 'redux-saga/effects'
-import { episodeFetch } from "../../api"
-import { SET_EPISODE, SET_IS_LOADING, SET_ERROR_MESS } from "../actionTypes"
+import { locationFetch } from "../../api"
+import { SET_LOCATION, SET_IS_LOADING, SET_ERROR_MESS } from "../actionTypes"
 
-export function* episodeSaga({page, name, episode}) {
+export function* locationSaga({page, name, typeLocation, dimension}) {
     const encodeName = encodeURI(name);
-    const encodeEpisode = encodeURI(episode);
-    
+    const encodeType = encodeURI(typeLocation);
+    const encodeDimension = encodeURI(dimension);
+
     yield put({ type: SET_IS_LOADING })
     try {
-        const response = yield call(episodeFetch, page, encodeName, encodeEpisode)       
+        const response = yield call(locationFetch, page, encodeName, encodeType, encodeDimension)
+        
         if (response.status === 200) {
-            yield put({ type: SET_EPISODE, payload: response.data })
+            yield put({ type: SET_LOCATION, payload: response.data })
         } else {
             yield put({ type: SET_ERROR_MESS, payload: response.data.message })
         }
