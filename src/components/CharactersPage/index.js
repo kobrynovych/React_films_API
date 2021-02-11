@@ -81,7 +81,7 @@ const Characters = () => {
                 text2={`The gender of the character: ${el.gender}`}
                 text3={`Name and link to the character's origin location: ${el.origin.name}`}
                 text4={`Name and link to the character's last known location endpoint: ${el.location.name}`}
-              />   
+              />     
             </React.Fragment>))}
         </List>
       

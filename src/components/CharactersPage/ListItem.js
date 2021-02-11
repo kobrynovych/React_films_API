@@ -6,7 +6,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import Card from '../UI/Card';
 import Modal from './Modal';
 
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +26,6 @@ export default function ListItemApp(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  
   return (
     <>
       <ListItem alignItems="flex-start" onClick={handleOpen}>
@@ -52,19 +50,18 @@ export default function ListItemApp(props) {
         />
       </ListItem>
       <Divider variant="inset" component="li" />
-      <Modal open={open} handleClose={handleClose}>
-        <Card imgSrc={imgSrc} 
-          imgAlt={imgAlt}
-          title={title} 
-          subTitle={subTitle} 
-          date={date}
-          text1={text1}
-          text2={text2}
-          text3={text3}
-          text4={text4}
-          handleClose={handleClose}
-        />
-      </Modal>
+      <Modal open={open}
+        imgSrc={imgSrc} 
+        imgAlt={imgAlt}
+        title={title} 
+        subTitle={subTitle} 
+        date={date}
+        text1={text1}
+        text2={text2}
+        text3={text3}
+        text4={text4}
+        handleClose={handleClose}
+      />
     </>
   );
 }
