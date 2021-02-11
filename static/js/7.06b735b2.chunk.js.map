@@ -1,1 +1,0 @@
-{"version":3,"sources":["components/ProfilePage/index.js"],"names":["Profile"],"mappings":"wGAAA,uBAUeA,UARC,WACd,OACE","file":"static/js/7.06b735b2.chunk.js","sourcesContent":["import React from 'react';\r\n\r\nconst Profile = () => {\r\n  return (\r\n    <div>\r\nProfile\r\n    </div>\r\n  ); \r\n}\r\n\r\nexport default Profile;"],"sourceRoot":""}

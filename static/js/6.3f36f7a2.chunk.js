@@ -1,2 +1,0 @@
-(this.webpackJsonpapp_films=this.webpackJsonpapp_films||[]).push([[6],{270:function(s,i,t){"use strict";t.r(i);t(0);var n=t(3);i.default=function(){return Object(n.jsx)("div",{children:"Locations"})}}}]);
-//# sourceMappingURL=6.3f36f7a2.chunk.js.map
