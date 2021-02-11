@@ -24,8 +24,13 @@ const Characters = () => {
   const results = useSelector(state => state.character.results); 
 
   useEffect(() => {
+    setPage(1)
+    dispatch({type: CHARACTER_FETCH, page: 1, species, status, gender})
+  }, [species, status, gender]);
+
+  useEffect(() => {
     dispatch({type: CHARACTER_FETCH, page, species, status, gender})
-  }, [page, species, status, gender]);
+  }, [page]);
 
   // filter
   const speciesArr = ['Human', 'Humanoid', 'Alien', 'Poopybutthole', 'Animal', 'Cronenberg', 'Disease', 'unknown'];

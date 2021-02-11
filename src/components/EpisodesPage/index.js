@@ -23,8 +23,13 @@ const Episodes = () => {
   const results = useSelector(state => state.episode.results); 
 
   useEffect(() => {
+    setPage(1)
+    dispatch({type: EPISODE_FETCH, page: 1, name, episode})
+  }, [name, episode]);
+
+  useEffect(() => {
     dispatch({type: EPISODE_FETCH, page, name, episode})
-  }, [page, name, episode]);
+  }, [page]);
 
   // filter
   const nameArr = results.map(el => el.name);

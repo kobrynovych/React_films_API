@@ -12,12 +12,13 @@ export function* episodeSaga({page, name, episode}) {
         const response = yield call(episodeFetch, page, encodeName, encodeEpisode)       
         if (response.status === 200) {
             yield put({ type: SET_EPISODE, payload: response.data })
+            yield put({ type: SET_ERROR_MESS, payload: ''})
         } else {
             yield put({ type: SET_ERROR_MESS, payload: response.data.message })
         }
     }
     catch(error) {
-        yield put({ type: SET_ERROR_MESS, payload: error.response.data.message })
+        yield put({ type: SET_ERROR_MESS, payload: error.response.data.error })
     }
         yield put({ type: SET_IS_LOADING})
 }

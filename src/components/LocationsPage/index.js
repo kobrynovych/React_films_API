@@ -24,8 +24,13 @@ const Locations = () => {
   const results = useSelector(state => state.location.results); 
 
   useEffect(() => {
+    setPage(1)
+    dispatch({type: LOCATION_FETCH, page: 1, name, typeLocation, dimension})
+  }, [name, typeLocation, dimension]);
+
+  useEffect(() => {
     dispatch({type: LOCATION_FETCH, page, name, typeLocation, dimension})
-  }, [page, name, typeLocation, dimension]);
+  }, [page]);
 
   // filter
   const nameArr = [...new Set(results.map(el => el.name))];

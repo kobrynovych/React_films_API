@@ -22,7 +22,7 @@ const Main = () => {
           <Route exact path="/Profile">
             <Profile />
           </Route>
-          <Route exact path="/">
+          <Route path="/React_films_API">
             <Characters />
           </Route>
         </Suspense>

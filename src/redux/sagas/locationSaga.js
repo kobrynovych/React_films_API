@@ -11,7 +11,7 @@ export function* locationSaga({page, name, typeLocation, dimension}) {
     yield put({ type: SET_IS_LOADING })
     try {
         const response = yield call(locationFetch, page, encodeName, encodeType, encodeDimension)
-        
+        yield put({ type: SET_ERROR_MESS, payload: ''})
         if (response.status === 200) {
             yield put({ type: SET_LOCATION, payload: response.data })
         } else {
@@ -19,7 +19,7 @@ export function* locationSaga({page, name, typeLocation, dimension}) {
         }
     }
     catch(error) {
-        yield put({ type: SET_ERROR_MESS, payload: error.response.data.message })
+        yield put({ type: SET_ERROR_MESS, payload: error.response.data.error })
     }
         yield put({ type: SET_IS_LOADING})
 }
