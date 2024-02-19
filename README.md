@@ -2,7 +2,7 @@
 
 The Rick and Morty API is a RESTful and GraphQL API based on the television show Rick and Morty. You will have access to about hundreds of characters, images, locations and episodes. The Rick and Morty API is filled with canonical information as seen on the TV show.
 
-https://igorkob.github.io/React_films_API
+https://kobrynovych.github.io/React_films_API
 
 ## Table of contents
 * [Instructions](#Instructions)
@@ -14,7 +14,7 @@ https://igorkob.github.io/React_films_API
 
 First clone this repository.
 ```bash
-$ git clone https://github.com/IgorKob/React_films_API.git
+$ git clone https://github.com/kobrynovych/React_films_API.git
 ```
 
 Install dependencies. Make sure you already have [`nodejs`](https://nodejs.org/en/) & [`npm`](https://www.npmjs.com/) installed in your system.
